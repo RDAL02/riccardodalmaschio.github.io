@@ -8,6 +8,7 @@
   <link rel="alternate" hreflang="it" href="it/index.html">
   <link rel="alternate" hreflang="en" href="index.html">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -30,11 +31,10 @@
     </div>
   </header>
 
-  <main>
+  <div class="hero-band">
     <div class="wrap">
-
       <section class="hero">
-        <div class="hero-text">
+        <div class="hero-text reveal">
           <h1>Riccardo Dal Maschio</h1>
           <p class="role">Computer Engineer, Dynamics 365 Consultant at Cluster Reply</p>
 
@@ -49,18 +49,65 @@
             of Padua, with a background spanning networking, search engines,
             graph databases and AI. I'm based in Padua, Italy.
           </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="about.html">About me</a>
+            <a class="btn" href="experience.html">Experience</a>
+            <a class="btn" href="contact.html">Get in touch</a>
+            <a class="btn" href="resume/Riccardo%20Dal%20Maschio%20CV.pdf" download>Download CV</a>
+          </div>
         </div>
 
-        <img class="hero-photo" src="resume/foto%20cv.jpeg"
-             alt="Portrait of Riccardo Dal Maschio" width="200" height="240">
+        <img class="hero-photo reveal" src="resume/foto%20cv.jpeg"
+             alt="Portrait of Riccardo Dal Maschio" width="300" height="360">
       </section>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="about.html">About me</a>
-        <a class="btn" href="experience.html">Experience</a>
-        <a class="btn" href="contact.html">Get in touch</a>
-        <a class="btn" href="resume/Riccardo%20Dal%20Maschio%20CV.pdf" download>Download CV</a>
-      </div>
+      <ul class="facts" data-stagger>
+        <li class="reveal">
+          <span class="fact-value">Cluster Reply</span>
+          <span class="fact-label">Consultant since 2024</span>
+        </li>
+        <li class="reveal">
+          <span class="fact-value">110 cum laude</span>
+          <span class="fact-label">MSc Computer Engineering</span>
+        </li>
+        <li class="reveal">
+          <span class="fact-value">AX 2012, D365 F&amp;O</span>
+          <span class="fact-label">Daily platforms</span>
+        </li>
+        <li class="reveal">
+          <span class="fact-value">Padua, Italy</span>
+          <span class="fact-label">Based in</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap">
+
+      <section class="content-section reveal">
+        <h2>What I do</h2>
+        <div class="section-body" data-stagger>
+          <p>
+            At Cluster Reply I develop on AX 2012 and Dynamics 365 for Finance
+            and Operations, writing and maintaining X++ customisations and
+            designing solutions around the business flows they support. Recently
+            I designed a multi-agent pipeline for automated purchase accrual
+            reconciliation in D365.
+          </p>
+          <p>
+            Alongside that, my research work has focused on applying language
+            models and text embeddings to financial forecasting, which led to my
+            Master's thesis on commodity price prediction and two conference
+            publications.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="experience.html">See the full record</a>
+            <a class="btn" href="about.html">More about me</a>
+          </div>
+        </div>
+      </section>
 
     </div>
   </main>
@@ -72,5 +119,6 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

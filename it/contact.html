@@ -8,6 +8,7 @@
   <link rel="alternate" hreflang="en" href="../contact.html">
   <link rel="alternate" hreflang="it" href="contact.html">
   <link rel="stylesheet" href="../styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -33,32 +34,38 @@
   <main>
     <div class="wrap">
 
-      <p class="eyebrow">Contatti</p>
-      <h1>Contattami</h1>
+      <div class="page-head reveal">
+        <p class="eyebrow">Contatti</p>
+        <h1>Contattami</h1>
+      </div>
 
-      <section>
-        <p class="lede">
-          Il modo più rapido per raggiungermi è la mail. Sono felice di parlare
-          di lavoro, progetti o collaborazioni.
-        </p>
+      <section class="content-section reveal">
+        <h2>Recapiti</h2>
+        <div class="section-body">
+          <p class="lede">
+            Il modo più rapido per raggiungermi è la mail. Sono felice di parlare
+            di lavoro, progetti o collaborazioni.
+          </p>
 
-        <ul class="contact-list">
-          <li>
-            <span class="label">Email</span>
-            <a href="mailto:riccardo.dalmaschio02@gmail.com">riccardo.dalmaschio02@gmail.com</a>
-          </li>
-          <li>
-            <span class="label">Telefono</span>
-            <a href="tel:+393348095025">+39 334 809 5025</a>
-          </li>
-          <li>
-            <span class="label">Dove</span>
-            <span class="muted">Padova, Italia</span>
-          </li>
-        </ul>
+          <ul class="contact-list" data-stagger>
+            <li class="reveal">
+              <span class="label">Email</span>
+              <a href="mailto:riccardo.dalmaschio02@gmail.com">riccardo.dalmaschio02@gmail.com</a>
+            </li>
+            <li class="reveal">
+              <span class="label">Telefono</span>
+              <a href="tel:+393348095025">+39 334 809 5025</a>
+            </li>
+            <li class="reveal">
+              <span class="label">Dove</span>
+              <span class="muted">Padova, Italia</span>
+            </li>
+          </ul>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="../resume/Riccardo%20Dal%20Maschio%20CV.pdf" download>Scarica il CV</a>
+          <div class="actions">
+            <a class="btn btn-primary" href="../resume/Riccardo%20Dal%20Maschio%20CV.pdf" download>Scarica il CV</a>
+            <a class="btn" href="experience.html">Guarda la mia esperienza</a>
+          </div>
         </div>
       </section>
 
@@ -72,5 +79,6 @@
     </div>
   </footer>
 
+  <script src="../script.js"></script>
 </body>
 </html>
