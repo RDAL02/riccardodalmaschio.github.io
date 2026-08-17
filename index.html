@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Riccardo Dal Maschio</title>
-  <meta name="description" content="Riccardo Dal Maschio — Computer Engineer and Microsoft Dynamics 365 consultant based in Padua, Italy.">
+  <meta name="description" content="Riccardo Dal Maschio, computer engineer and Microsoft Dynamics 365 consultant based in Padua, Italy.">
+  <link rel="alternate" hreflang="it" href="it/index.html">
+  <link rel="alternate" hreflang="en" href="index.html">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,14 +14,19 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">Riccardo Dal Maschio</a>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="header-right">
+        <nav class="site-nav" aria-label="Main">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="lang-switch">
+          <span aria-current="true">EN</span> / <a href="it/index.html" hreflang="it" lang="it">IT</a>
+        </p>
+      </div>
     </div>
   </header>
 
@@ -27,28 +34,33 @@
     <div class="wrap">
 
       <section class="hero">
-        <h1>Riccardo Dal Maschio</h1>
-        <p class="role">Computer Engineer &middot; Dynamics 365 Consultant at Cluster Reply</p>
+        <div class="hero-text">
+          <h1>Riccardo Dal Maschio</h1>
+          <p class="role">Computer Engineer, Dynamics 365 Consultant at Cluster Reply</p>
 
-        <p class="lede">
-          I build software on Microsoft ERP platforms and work on applied machine
-          learning — most recently on LLM- and embedding-driven forecasting for
-          commodity markets.
-        </p>
+          <p class="lede">
+            I build software on Microsoft ERP platforms and work on applied
+            machine learning, most recently on LLM and embedding driven
+            forecasting for commodity markets.
+          </p>
 
-        <p>
-          I hold a Master's degree in Computer Engineering from the University of
-          Padua, with a background spanning networking, search engines, graph
-          databases and AI. I'm based in Padua, Italy.
-        </p>
-
-        <div class="actions">
-          <a class="btn btn-primary" href="about.html">About me</a>
-          <a class="btn" href="experience.html">Experience</a>
-          <a class="btn" href="contact.html">Get in touch</a>
-          <a class="btn" href="resume/Riccardo%20Dal%20Maschio%20CV.pdf" download>Download CV</a>
+          <p>
+            I hold a Master's degree in Computer Engineering from the University
+            of Padua, with a background spanning networking, search engines,
+            graph databases and AI. I'm based in Padua, Italy.
+          </p>
         </div>
+
+        <img class="hero-photo" src="resume/foto%20cv.jpeg"
+             alt="Portrait of Riccardo Dal Maschio" width="200" height="240">
       </section>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="about.html">About me</a>
+        <a class="btn" href="experience.html">Experience</a>
+        <a class="btn" href="contact.html">Get in touch</a>
+        <a class="btn" href="resume/Riccardo%20Dal%20Maschio%20CV.pdf" download>Download CV</a>
+      </div>
 
     </div>
   </main>
