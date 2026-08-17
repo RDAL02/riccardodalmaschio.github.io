@@ -30,6 +30,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
+  overflow-wrap: break-word;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
@@ -170,6 +171,7 @@ a:focus-visible {
   z-index: 10;
   border-bottom: 1px solid var(--rule);
   background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
   backdrop-filter: saturate(180%) blur(10px);
   padding: 1.15rem 0;
 }
@@ -492,18 +494,24 @@ a:focus-visible {
 
 /* ---------- Contact list ---------- */
 
+/* One full-width row per detail: long values such as the email address get the
+   whole column and never overflow their card. */
 .contact-list {
   list-style: none;
   padding: 0;
   margin: 2rem 0 0;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.85rem;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .contact-list li {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0 1.25rem;
   margin: 0;
-  padding: 1.15rem 1.4rem;
+  padding: 1.1rem 1.4rem;
   background: var(--bg);
   border: 1px solid var(--rule);
   border-left: 3px solid var(--blue-soft);
@@ -518,14 +526,18 @@ a:focus-visible {
   box-shadow: var(--shadow);
 }
 
+.contact-list li > a,
+.contact-list li > .muted {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .contact-list .label {
-  display: block;
   font-size: 0.78rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--blue);
   font-weight: 600;
-  margin-bottom: 0.15rem;
 }
 
 /* ---------- Footer ---------- */
@@ -670,11 +682,11 @@ a:focus-visible {
   }
 
   /* Experience entries sit two per row on wide screens */
+  /* Default stretch alignment keeps paired cards the same height */
   .entry-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
-    align-items: start;
   }
 
   .entry-grid .entry {
@@ -691,6 +703,27 @@ a:focus-visible {
   .page-head,
   .content-section {
     grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+
+/* ---------- Tablet and below ---------- */
+
+/* Below the two-column breakpoint the hero is a single stack, so the portrait
+   leads and the text follows, on every narrow width rather than only on phones. */
+@media (max-width: 799px) {
+  .hero-photo {
+    order: -1;
+  }
+}
+
+/* Justification needs a wide enough measure to avoid rivers of whitespace. */
+@media (max-width: 700px) {
+  p,
+  .entry li,
+  .tech-list li,
+  .pub-list li {
+    text-align: left;
+    hyphens: manual;
   }
 }
 
@@ -723,7 +756,11 @@ a:focus-visible {
 
   .hero-photo {
     max-width: 170px;
-    order: -1;
+  }
+
+  .contact-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.15rem;
   }
 
   .site-header {
@@ -746,13 +783,6 @@ a:focus-visible {
     gap: 1.15rem;
   }
 
-  /* Justification gets ugly at phone widths */
-  p,
-  .entry li,
-  .tech-list li,
-  .pub-list li {
-    text-align: left;
-  }
 }
 
 /* ---------- Motion preferences ---------- */
