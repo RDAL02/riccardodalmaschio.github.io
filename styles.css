@@ -302,14 +302,18 @@ a:focus-visible {
   margin-bottom: 1.5rem;
 }
 
+/* Both dimensions are set explicitly rather than derived from aspect-ratio:
+   browsers without aspect-ratio support otherwise fall back to the img height
+   attribute and render a tall, narrow sliver. */
 .hero-photo {
-  width: 100%;
-  max-width: 260px;
-  aspect-ratio: 5 / 6;
+  display: block;
+  width: min(100%, 250px);
+  height: 300px;
   object-fit: cover;
   object-position: center 18%;
   border-radius: 10px;
   box-shadow: var(--shadow);
+  justify-self: center;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 
@@ -673,7 +677,8 @@ a:focus-visible {
   }
 
   .hero-photo {
-    max-width: 300px;
+    width: 300px;
+    height: 375px;
     justify-self: end;
   }
 
@@ -716,17 +721,6 @@ a:focus-visible {
   }
 }
 
-/* Justification needs a wide enough measure to avoid rivers of whitespace. */
-@media (max-width: 700px) {
-  p,
-  .entry li,
-  .tech-list li,
-  .pub-list li {
-    text-align: left;
-    hyphens: manual;
-  }
-}
-
 /* ---------- Mobile ---------- */
 
 @media (max-width: 600px) {
@@ -755,7 +749,8 @@ a:focus-visible {
   }
 
   .hero-photo {
-    max-width: 170px;
+    width: min(100%, 230px);
+    height: 276px;
   }
 
   .contact-list li {
