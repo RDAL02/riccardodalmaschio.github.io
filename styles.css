@@ -314,6 +314,7 @@ a:focus-visible {
   border-radius: 10px;
   box-shadow: var(--shadow);
   justify-self: center;
+  margin-inline: auto;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 
@@ -648,10 +649,15 @@ a:focus-visible {
     margin-bottom: 0;
   }
 
-  /* Prose gets a comfortable measure without shrinking the whole page */
+  /* Prose gets a comfortable measure without shrinking the whole page.
+     rem, not ch: ch is relative to each element's own font-size, so a
+     larger .lede paragraph next to a regular one would get a wider box
+     and their right edges would stop lining up under justification. rem
+     is always relative to the root font-size, so every paragraph in a
+     section gets the exact same pixel width regardless of its own type size. */
   .section-body p,
   .section-body > ul {
-    max-width: 62ch;
+    max-width: 38rem;
   }
 
   .hero {
@@ -672,14 +678,17 @@ a:focus-visible {
     font-size: 1.2rem;
   }
 
+  /* rem for the same reason as .section-body: .lede runs bigger than the
+     plain paragraph beside it, and ch would give it a wider box. */
   .hero-text p {
-    max-width: 56ch;
+    max-width: 34rem;
   }
 
   .hero-photo {
     width: 300px;
     height: 375px;
     justify-self: end;
+    margin-inline: 0;
   }
 
   .hero-band {
