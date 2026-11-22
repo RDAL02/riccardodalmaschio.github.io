@@ -323,43 +323,6 @@ a:focus-visible {
   box-shadow: var(--shadow-lift);
 }
 
-/* Small stat strip under the hero */
-.facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.25rem;
-  margin-top: 3.5rem;
-  padding: 0;
-  list-style: none;
-}
-
-.facts li {
-  margin: 0;
-  padding-left: 1rem;
-  border-left: 3px solid var(--blue-soft);
-  transition: border-color 0.25s var(--ease);
-}
-
-.facts li:hover {
-  border-left-color: var(--blue);
-}
-
-.facts .fact-value {
-  display: block;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.35;
-}
-
-.facts .fact-label {
-  display: block;
-  font-size: 0.78rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
-
 /* ---------- Buttons ---------- */
 
 .actions {
@@ -571,6 +534,755 @@ a:focus-visible {
   color: var(--blue);
 }
 
+/* ---------- Home: hero tweaks ---------- */
+
+.hero .eyebrow {
+  margin-bottom: 0.9rem;
+}
+
+.hero-text .actions {
+  margin-top: 1.75rem;
+}
+
+/* ---------- Home: highlight cards ---------- */
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlights > li {
+  margin: 0;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.6rem 1.6rem 1.4rem;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+a.card:hover,
+a.card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(46, 117, 182, 0.45);
+  box-shadow: var(--shadow-lift);
+  color: inherit;
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.1rem;
+  border-radius: 12px;
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.card .eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  text-align: left;
+  hyphens: manual;
+}
+
+.card .more {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.card .more::after {
+  content: "\2192";
+  margin-left: 0.3em;
+  display: inline-block;
+  transition: transform 0.25s var(--ease);
+}
+
+a.card:hover .more::after {
+  transform: translateX(4px);
+}
+
+/* ---------- Journey: filter + timeline ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+}
+
+.filters button {
+  font: inherit;
+  font-size: 0.88rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.filters button:hover {
+  border-color: var(--blue);
+  color: var(--navy);
+}
+
+.filters button[aria-pressed="true"] {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The vertical rail runs through the centre of the badges */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 23px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--blue) 0%, var(--rule) 100%);
+}
+
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 0 1.25rem;
+  margin: 0 0 1.75rem;
+}
+
+.tl-item[hidden] {
+  display: none;
+}
+
+.badge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 0 5px var(--bg);
+}
+
+.tl-item[data-type="edu"] .badge {
+  background: var(--blue);
+}
+
+/* Minor entries: a small dot instead of a badge */
+.tl-item.minor .badge {
+  width: 14px;
+  height: 14px;
+  margin: 0.55rem auto 0;
+  background: var(--bg);
+  border: 2px solid var(--ink-faint);
+}
+
+.tl-body {
+  padding: 1.1rem 1.35rem;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.tl-body:hover {
+  border-color: rgba(46, 117, 182, 0.4);
+  box-shadow: var(--shadow);
+}
+
+.tl-item.minor .tl-body {
+  padding: 0.2rem 0 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.tl-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.tl-body h3 {
+  margin: 0;
+  color: var(--navy);
+}
+
+.tl-item.minor h3 {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.tl-org {
+  margin: 0.1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.tl-date {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tl-body ul {
+  margin: 0.7rem 0 0;
+  font-size: 0.97rem;
+}
+
+.tl-body li {
+  margin-bottom: 0.25rem;
+}
+
+.tl-body .grade {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--navy);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ---------- Chips (skills, tags) ---------- */
+
+.chip-groups {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.chip-groups h3 {
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.6rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink);
+  text-align: left;
+}
+
+.chips li small {
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+}
+
+.chips.tags li {
+  padding: 0.12rem 0.6rem;
+  font-size: 0.78rem;
+  background: var(--blue-soft);
+  border-color: transparent;
+  color: var(--navy);
+}
+
+/* ---------- Projects ---------- */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+.project-visual {
+  padding: 1.25rem 1.25rem 1rem;
+  background:
+    radial-gradient(30rem 12rem at 90% -20%, rgba(46, 117, 182, 0.12), transparent 70%),
+    var(--bg-soft);
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.project-body .eyebrow {
+  margin-bottom: 0.4rem;
+  font-size: 0.74rem;
+}
+
+.project-body h3 {
+  color: var(--navy);
+  font-size: 1.12rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-body p {
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+}
+
+.project-body .chips {
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+/* Diagram primitives, shared by every inline SVG on the projects page */
+.dg-box {
+  fill: #fff;
+  stroke: var(--blue);
+  stroke-width: 1.5;
+}
+
+.dg-box.solid {
+  fill: var(--navy);
+  stroke: var(--navy);
+}
+
+.dg-box.soft {
+  fill: var(--blue-soft);
+  stroke: var(--blue-soft);
+}
+
+.dg-box.warn {
+  fill: #fff6e8;
+  stroke: #d08a1c;
+}
+
+.dg-text {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--navy);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.dg-text.light {
+  fill: #fff;
+}
+
+.dg-text.small {
+  font-size: 9.5px;
+  font-weight: 500;
+  fill: var(--ink-soft);
+}
+
+.dg-text.warn {
+  fill: #9a5f0c;
+}
+
+.dg-line {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.5;
+}
+
+.dg-line.dash {
+  stroke-dasharray: 4 4;
+}
+
+.dg-line.muted {
+  stroke: var(--ink-faint);
+}
+
+.dg-line.warn {
+  stroke: #d08a1c;
+}
+
+.dg-fill {
+  fill: var(--blue);
+}
+
+.dg-band {
+  fill: rgba(46, 117, 182, 0.14);
+}
+
+/* ---------- Publications ---------- */
+
+.pubs {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pubs li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 1.1rem;
+  align-items: start;
+  margin: 0;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.pubs li:hover {
+  border-color: rgba(46, 117, 182, 0.4);
+  box-shadow: var(--shadow);
+}
+
+.pub-venue {
+  display: grid;
+  place-items: center;
+  min-width: 4.4rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.pubs a {
+  font-weight: 600;
+  text-align: left;
+}
+
+.pubs p {
+  margin: 0.3rem 0 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+/* ---------- About: info cards ---------- */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.info-grid > li {
+  margin: 0;
+}
+
+.info-grid .card {
+  padding: 1.35rem 1.4rem 1.25rem;
+}
+
+.info-grid .card-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.9rem;
+  border-radius: 10px;
+}
+
+.info-grid .card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.info-grid .card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.15rem;
+}
+
+.info-grid .card .tl-date {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.info-grid .card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+}
+
+.info-grid .card li {
+  text-align: left;
+  margin-bottom: 0.25rem;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0 0 0.6rem;
+}
+
+.stat strong {
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--blue);
+}
+
+.stat span {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* Card and list components use the full column width and ragged-right text:
+   justification opens wide gaps in narrow cards. */
+@media (min-width: 800px) {
+  .section-body > .pubs,
+  .section-body > .info-grid,
+  .section-body > .timeline,
+  .section-body > .chips {
+    max-width: none;
+  }
+}
+
+.project-body p,
+.tl-body li,
+.info-grid .card p,
+.hero .lede {
+  text-align: left;
+  hyphens: manual;
+}
+
+/* ---------- Button icon ---------- */
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.45rem;
+  vertical-align: -3px;
+}
+
+/* ---------- Journey: "see project" link in the tile corner ---------- */
+
+.tl-more {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.tl-more a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tl-more a::after {
+  content: "\2192";
+  margin-left: 0.3em;
+  display: inline-block;
+  transition: transform 0.25s var(--ease);
+}
+
+.tl-more a:hover::after,
+.tl-more a:focus-visible::after {
+  transform: translateX(4px);
+}
+
+/* ---------- Projects: arrival glow ---------- */
+
+/* Linked-to project clears the sticky header and glows briefly on arrival */
+.project {
+  scroll-margin-top: 6.5rem;
+}
+
+.project:target {
+  animation: target-glow 2.8s var(--ease) 0.5s both;
+}
+
+@keyframes target-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 117, 182, 0);
+    border-color: var(--rule);
+  }
+  18% {
+    box-shadow: 0 0 0 4px rgba(46, 117, 182, 0.35), 0 0 34px rgba(46, 117, 182, 0.45);
+    border-color: var(--blue);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 117, 182, 0);
+    border-color: var(--rule);
+  }
+}
+
+/* ---------- Projects: thesis -> product story ---------- */
+
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.story-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.story-link svg {
+  width: 30px;
+  height: 30px;
+  transform: rotate(90deg);
+}
+
+@media (min-width: 1000px) {
+  .story {
+    grid-template-columns: minmax(0, 1fr) 4.5rem minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .story-link svg {
+    transform: none;
+  }
+}
+
+.continues {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0 0 0.9rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.continues:hover,
+a.continues:focus-visible {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* ---------- Responsive tweaks for new components ---------- */
+
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 19px;
+  }
+
+  .tl-item {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 0 0.9rem;
+  }
+
+  .badge {
+    width: 40px;
+    height: 40px;
+    font-size: 0.55rem;
+  }
+
+  .tl-body {
+    padding: 0.95rem 1.05rem;
+  }
+
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pubs li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .pub-venue {
+    justify-self: start;
+  }
+}
+
 /* ---------- Scroll reveal ---------- */
 
 .js .reveal {
@@ -778,13 +1490,22 @@ a:focus-visible {
   }
 
   .header-right {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem 1.25rem;
+  }
+
+  .site-nav {
+    width: 100%;
   }
 
   .site-nav ul {
-    gap: 1.15rem;
+    gap: 0.4rem 1rem;
+  }
+
+  .site-nav a {
+    font-size: 0.9rem;
   }
 
 }
@@ -808,4 +1529,36 @@ a:focus-visible {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ---------- Small external links (theses, papers, recordings) ---------- */
+
+p.ext-link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.25rem 1.1rem;
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+}
+
+p.ext-link a {
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+p.ext-link a:hover,
+p.ext-link a:focus-visible {
+  text-decoration: underline;
+}
+
+p.ext-link a::after {
+  content: "\2197";
+  margin-left: 0.3em;
+}
+
+.pub-title {
+  font-weight: 600;
+  color: var(--ink);
 }

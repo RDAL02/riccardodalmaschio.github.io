@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Riccardo Dal Maschio</title>
+  <meta name="description" content="Projects, theses and publications of Riccardo Dal Maschio.">
+  <link rel="alternate" hreflang="it" href="it/projects.html">
+  <link rel="alternate" hreflang="en" href="projects.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=9">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Riccardo Dal Maschio</a>
+      <div class="header-right">
+        <nav class="site-nav" aria-label="Main">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experience.html">Journey</a></li>
+            <li><a href="projects.html" aria-current="page">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="lang-switch">
+          <span aria-current="true">EN</span> / <a href="it/projects.html" hreflang="it" lang="it">IT</a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <div class="page-head reveal">
+        <p class="eyebrow">Projects</p>
+        <h1>What I've built and researched</h1>
+      </div>
+
+      <section class="content-section reveal">
+        <h2>From thesis to product</h2>
+        <div class="section-body story">
+
+          <!-- MSc thesis -->
+          <article class="project reveal" id="thesis">
+            <div class="project-visual">
+              <svg viewBox="0 0 360 160" role="img" aria-label="Illustration: a price series with news events, followed by a forecast with an uncertainty band">
+                <path class="dg-line muted" d="M20 140 H348"/>
+                <path class="dg-line muted dash" d="M200 18 V140"/>
+                <text class="dg-text small" x="200" y="151">today</text>
+                <polygon class="dg-band" points="200,68 230,54 260,46 290,38 320,33 348,28 348,76 320,74 290,75 260,76 230,75"/>
+                <polyline class="dg-line dash" points="200,68 230,64 260,61 290,56 320,53 348,51"/>
+                <polyline class="dg-line" style="stroke-width:2" points="20,104 38,96 56,108 74,90 92,94 110,78 128,86 146,70 164,76 182,62 200,68"/>
+                <path class="dg-line muted dash" d="M74 42 V88 M128 34 V84 M182 42 V60"/>
+                <rect class="dg-box soft" x="56" y="26" width="36" height="16" rx="4"/>
+                <text class="dg-text small" x="74" y="34">news</text>
+                <rect class="dg-box soft" x="110" y="18" width="36" height="16" rx="4"/>
+                <text class="dg-text small" x="128" y="26">news</text>
+                <rect class="dg-box soft" x="164" y="26" width="36" height="16" rx="4"/>
+                <text class="dg-text small" x="182" y="34">news</text>
+                <text class="dg-text small" x="70" y="126">Brent returns</text>
+                <text class="dg-text small" x="290" y="96">forecast</text>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="eyebrow">MSc thesis &middot; 2026</p>
+              <h3>Can the news predict oil prices?</h3>
+              <p>
+                I tested whether the news helps forecast Brent crude oil prices.
+                From news articles I extracted two kinds of features: sentiment
+                and sentence embeddings. I fed them to MLP and LSTM models,
+                together with past prices. I also tested a realistic setting,
+                where the models only see information available at the time.
+                Embeddings worked better than sentiment. News and prices together
+                gave the best results.
+              </p>
+              <ul class="chips tags">
+                <li>Time series</li>
+                <li>NLP</li>
+                <li>Text embeddings</li>
+                <li>Deep learning</li>
+              </ul>
+              <p class="ext-link"><a href="https://thesis.unipd.it/handle/20.500.12608/109380" target="_blank" rel="noopener">Read on thesis.unipd.it</a></p>
+            </div>
+          </article>
+
+          <div class="story-link" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg>
+            <span>continued at work</span>
+          </div>
+
+          <!-- Petroleum price forecasting -->
+          <article class="project reveal" id="forecasting">
+            <div class="project-visual">
+              <svg viewBox="0 0 360 160" role="img" aria-label="Diagram: prices and news are the features of a forecaster; its forecasts serve the wholesale business (hedging, timing of purchases) and trading (speculation)">
+                <defs><marker id="ah-f" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" class="dg-fill"/></marker></defs>
+                <rect class="dg-box soft" x="8" y="14" width="96" height="40" rx="8"/>
+                <text class="dg-text" x="56" y="27">Prices</text>
+                <text class="dg-text small" x="56" y="42">Platts &#183; ICE</text>
+                <rect class="dg-box soft" x="8" y="106" width="96" height="40" rx="8"/>
+                <text class="dg-text" x="56" y="119">News</text>
+                <text class="dg-text small" x="56" y="134">LLM embeddings</text>
+                <text class="dg-text small" x="56" y="80">features</text>
+                <path class="dg-line" d="M104 34 C120 34 118 70 132 70" marker-end="url(#ah-f)"/>
+                <path class="dg-line" d="M104 126 C120 126 118 90 132 90" marker-end="url(#ah-f)"/>
+                <rect class="dg-box solid" x="136" y="59" width="88" height="42" rx="8"/>
+                <text class="dg-text light" x="180" y="73">Forecaster</text>
+                <text class="dg-text small" x="180" y="88" style="fill:#cfe0f1">deep learning</text>
+                <path class="dg-line" d="M224 80 C240 80 238 40 252 40" marker-end="url(#ah-f)"/>
+                <path class="dg-line" d="M224 80 C240 80 238 126 252 126" marker-end="url(#ah-f)"/>
+                <rect class="dg-box" x="256" y="10" width="96" height="60" rx="8"/>
+                <text class="dg-text" x="304" y="25">Wholesale</text>
+                <text class="dg-text small" x="304" y="41">hedging</text>
+                <text class="dg-text small" x="304" y="55">when to buy</text>
+                <rect class="dg-box" x="256" y="104" width="96" height="44" rx="8"/>
+                <text class="dg-text" x="304" y="119">Trading</text>
+                <text class="dg-text small" x="304" y="134">speculation</text>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="eyebrow">Click and Find &middot; 2026 &ndash; now</p>
+              <h3>Petroleum price forecasting</h3>
+              <a class="continues" href="#thesis">Builds on my MSc thesis</a>
+              <p>
+                I manage and develop a project to build a system that forecasts
+                petroleum product prices, taking the research of my thesis
+                further. The forecaster combines Platts and ICE price benchmarks
+                with news. Its forecasts have two uses: in the wholesale business,
+                to hedge with futures and swaps and to choose the best time to
+                buy; and in trading, to speculate on price moves.
+              </p>
+              <ul class="chips tags">
+                <li>Deep learning</li>
+                <li>Transformers</li>
+                <li>AI/LLMs</li>
+                <li>Commodities</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Other projects</h2>
+        <div class="section-body project-grid" data-stagger>
+
+          <!-- Reply: ERP customisation -->
+          <article class="project reveal" id="reply">
+            <div class="project-visual">
+              <svg viewBox="0 0 360 160" role="img" aria-label="Diagram: a business need, then a solution designed with the client, then the implementation in X++, all on AX 2012 and Dynamics 365">
+                <defs><marker id="ah-r" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" class="dg-fill"/></marker></defs>
+                <rect class="dg-box" x="6" y="22" width="104" height="56" rx="8"/>
+                <text class="dg-text" x="58" y="42">Business need</text>
+                <text class="dg-text small" x="58" y="58">from the client</text>
+                <path class="dg-line" d="M110 50 H124" marker-end="url(#ah-r)"/>
+                <rect class="dg-box" x="128" y="22" width="104" height="56" rx="8"/>
+                <text class="dg-text" x="180" y="42">Solution design</text>
+                <text class="dg-text small" x="180" y="58">with the client</text>
+                <path class="dg-line" d="M232 50 H246" marker-end="url(#ah-r)"/>
+                <rect class="dg-box solid" x="250" y="22" width="104" height="56" rx="8"/>
+                <text class="dg-text light" x="302" y="42">Implementation</text>
+                <text class="dg-text small" x="302" y="58" style="fill:#cfe0f1">in X++</text>
+                <path class="dg-line muted dash" d="M58 78 V108 M180 78 V108 M302 78 V108"/>
+                <rect class="dg-box soft" x="6" y="108" width="348" height="34" rx="8"/>
+                <text class="dg-text" x="180" y="125">AX 2012 &#183; Dynamics 365 F&amp;O</text>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="eyebrow">Cluster Reply &middot; 2024 &ndash; 2026</p>
+              <h3>ERP customisation on AX 2012 and D365</h3>
+              <p>
+                My main work at Cluster Reply: customising Microsoft's ERP
+                platforms, AX 2012 and Dynamics 365 for Finance and Operations.
+                Starting from a business need, I designed the solution with the
+                client and then implemented it in X++.
+              </p>
+              <ul class="chips tags">
+                <li>X++</li>
+                <li>AX 2012</li>
+                <li>D365 F&amp;O</li>
+                <li>ERP</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Multi-agent reconciliation -->
+          <article class="project reveal" id="agents">
+            <div class="project-visual">
+              <svg viewBox="0 0 360 160" role="img" aria-label="Diagram: purchase accruals from Dynamics 365 pass through cooperating AI agents and come out reconciled">
+                <defs><marker id="ah-a" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" class="dg-fill"/></marker></defs>
+                <rect class="dg-box soft" x="8" y="59" width="92" height="42" rx="8"/>
+                <text class="dg-text" x="54" y="74">D365 F&amp;O</text>
+                <text class="dg-text small" x="54" y="89">purchase accruals</text>
+                <path class="dg-line" d="M100 80 C130 80 136 34 158 34"/>
+                <path class="dg-line" d="M100 80 H158"/>
+                <path class="dg-line" d="M100 80 C130 80 136 126 158 126"/>
+                <path class="dg-line muted dash" d="M180 54 V60 M180 100 V106"/>
+                <circle class="dg-box solid" cx="180" cy="34" r="20"/>
+                <circle class="dg-box solid" cx="180" cy="80" r="20"/>
+                <circle class="dg-box solid" cx="180" cy="126" r="20"/>
+                <text class="dg-text small" x="180" y="34" style="fill:#fff">agent</text>
+                <text class="dg-text small" x="180" y="80" style="fill:#fff">agent</text>
+                <text class="dg-text small" x="180" y="126" style="fill:#fff">agent</text>
+                <path class="dg-line" d="M200 34 C226 34 230 80 258 80"/>
+                <path class="dg-line" d="M200 80 H258" marker-end="url(#ah-a)"/>
+                <path class="dg-line" d="M200 126 C226 126 230 80 258 80"/>
+                <rect class="dg-box" x="262" y="59" width="90" height="42" rx="8"/>
+                <text class="dg-text" x="307" y="74">Reconciled</text>
+                <text class="dg-text small" x="307" y="89">accruals</text>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="eyebrow">Cluster Reply &middot; 2024 &ndash; 2026</p>
+              <h3>Multi-agent accrual reconciliation</h3>
+              <p>
+                A multi-agent pipeline that automates the reconciliation of
+                purchase accruals in Dynamics 365 for Finance and Operations.
+              </p>
+              <ul class="chips tags">
+                <li>AI agents</li>
+                <li>D365 F&amp;O</li>
+                <li>ERP</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Ewon plant monitoring -->
+          <article class="project reveal" id="ewon">
+            <div class="project-visual">
+              <svg viewBox="0 0 360 160" role="img" aria-label="Diagram: plant data goes through an Ewon switch to customer servers; on failure an alert goes to the plant owner">
+                <defs>
+                  <marker id="ah-e" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" class="dg-fill"/></marker>
+                  <marker id="ah-w" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" style="fill:#d08a1c"/></marker>
+                </defs>
+                <rect class="dg-box soft" x="8" y="26" width="90" height="42" rx="8"/>
+                <text class="dg-text" x="53" y="41">Plant</text>
+                <text class="dg-text small" x="53" y="56">raw data</text>
+                <path class="dg-line" d="M98 47 H130" marker-end="url(#ah-e)"/>
+                <rect class="dg-box solid" x="135" y="26" width="90" height="42" rx="8"/>
+                <text class="dg-text light" x="180" y="41">Ewon switch</text>
+                <text class="dg-text small" x="180" y="56" style="fill:#cfe0f1">collect &#183; process</text>
+                <path class="dg-line" d="M225 47 H257" marker-end="url(#ah-e)"/>
+                <rect class="dg-box" x="262" y="26" width="90" height="42" rx="8"/>
+                <text class="dg-text" x="307" y="41">Customer</text>
+                <text class="dg-text small" x="307" y="56">servers</text>
+                <path class="dg-line warn dash" d="M180 68 V104" marker-end="url(#ah-w)"/>
+                <text class="dg-text small warn" x="226" y="86">on failure</text>
+                <rect class="dg-box warn" x="125" y="108" width="110" height="36" rx="8"/>
+                <text class="dg-text warn" x="180" y="126">Alert to owner</text>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="eyebrow">Work with an industrial engineer &middot; 2023</p>
+              <h3>Industrial plant monitoring</h3>
+              <p>
+                An algorithm running on Ewon switches that collects, processes and
+                transmits industrial plant data to customer servers. It also
+                detects emergencies and system failures and automatically notifies
+                the plant owner.
+              </p>
+              <ul class="chips tags">
+                <li>Ewon Basic</li>
+                <li>Industrial IoT</li>
+                <li>Monitoring</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- BSc thesis: lightsails -->
+          <article class="project reveal" id="lightsails">
+            <div class="project-visual">
+              <svg viewBox="0 0 360 160" role="img" aria-label="Diagram: lightsails in a line; data hops from the furthest sail to the closest and then to Earth">
+                <defs><marker id="ah-l" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" class="dg-fill"/></marker></defs>
+                <text class="dg-text small" x="190" y="18">data hops from sail to sail</text>
+                <circle cx="34" cy="84" r="17" style="fill:#cfe0f1;stroke:var(--blue);stroke-width:1.5"/>
+                <path d="M22 78 q6 -6 12 -2 q4 4 10 0 M24 90 q6 4 12 0" style="fill:none;stroke:var(--blue);stroke-width:1.2"/>
+                <text class="dg-text small" x="34" y="114">Earth</text>
+                <path class="dg-line" d="M318 70 Q286 36 254 68" marker-end="url(#ah-l)"/>
+                <path class="dg-line" d="M238 70 Q206 36 174 68" marker-end="url(#ah-l)"/>
+                <path class="dg-line" d="M158 70 Q126 36 94 68" marker-end="url(#ah-l)"/>
+                <path class="dg-line" d="M78 72 Q64 50 52 72" marker-end="url(#ah-l)"/>
+                <rect class="dg-box solid" x="76" y="74" width="20" height="20" rx="2" transform="rotate(45 86 84)"/>
+                <rect class="dg-box solid" x="156" y="74" width="20" height="20" rx="2" transform="rotate(45 166 84)"/>
+                <rect class="dg-box solid" x="236" y="74" width="20" height="20" rx="2" transform="rotate(45 246 84)"/>
+                <rect class="dg-box solid" x="316" y="74" width="20" height="20" rx="2" transform="rotate(45 326 84)"/>
+                <text class="dg-text small" x="326" y="114">furthest</text>
+                <path class="dg-line muted" d="M166 128 H246 M166 123 V133 M246 123 V133"/>
+                <text class="dg-text small" x="206" y="145">max link distance</text>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="eyebrow">BSc thesis &middot; 2024</p>
+              <h3>Interconnected lightsails for space exploration</h3>
+              <p>
+                A swarm of lightsail probes for space exploration, linked by laser
+                communication. I compared modulation schemes and used link budget
+                calculations to find the maximum distance between probes, then
+                proposed a line topology in which data hops from the furthest
+                probe to the closest, with redundancy in case some probes fail.
+              </p>
+              <ul class="chips tags">
+                <li>Space exploration</li>
+                <li>Optical communications</li>
+                <li>Link budget</li>
+              </ul>
+              <p class="ext-link"><a href="https://thesis.unipd.it/handle/20.500.12608/68808" target="_blank" rel="noopener">Read on thesis.unipd.it</a></p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="content-section reveal" id="research">
+        <h2>Publications</h2>
+        <div class="section-body">
+          <ul class="pubs" data-stagger>
+            <li class="reveal">
+              <span class="pub-venue">CLEF<br>2025</span>
+              <div>
+                <span class="pub-title">SARD at LongEval: Longitudinal Evaluation of IR Systems by Using Query Rewriting and Hybrid Queries</span>
+                <p>Information retrieval for the LongEval lab, which measures how search systems hold up over time, using query rewriting and hybrid queries.</p>
+                <p class="ext-link"><a href="https://www.dei.unipd.it/~ferro/papers/2025/CLEF2025wn-SARD.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a></p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="pub-venue">MAIN<br>2026</span>
+              <div>
+                <span class="pub-title">Strategic Demand and Congestion Pricing in Shared Computation Systems</span>
+                <p>When many users share the same computing resources, prices can keep them from getting congested. The paper studies how to set those prices when users change their demand in response.</p>
+                <p class="ext-link"><a href="https://ieeexplore.ieee.org/abstract/document/11622389" target="_blank" rel="noopener">Read on IEEE Xplore</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 Riccardo Dal Maschio</span>
+      <span><a href="mailto:riccardo.dalmaschio02@gmail.com">riccardo.dalmaschio02@gmail.com</a></span>
+    </div>
+  </footer>
+
+  <script src="script.js?v=9"></script>
+</body>
+</html>

@@ -39,3 +39,30 @@
     observer.observe(el);
   });
 })();
+
+/* Journey filter: shows all entries, only work, or only education. */
+(function () {
+  "use strict";
+
+  var bar = document.querySelector("[data-filter-bar]");
+  if (!bar) return;
+
+  var buttons = bar.querySelectorAll("button[data-filter]");
+  var items = document.querySelectorAll(".timeline [data-type]");
+
+  bar.addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-filter]");
+    if (!btn) return;
+    var f = btn.getAttribute("data-filter");
+
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute("aria-pressed", buttons[i] === btn ? "true" : "false");
+    }
+    for (var j = 0; j < items.length; j++) {
+      var show = f === "all" || items[j].getAttribute("data-type") === f;
+      items[j].hidden = !show;
+      // Revealed state is kept so re-shown items don't fade in from blank.
+      if (show) items[j].classList.add("is-visible");
+    }
+  });
+})();
